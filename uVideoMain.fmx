@@ -1,0 +1,124 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 643
+  ClientWidth = 540
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 540.000000000000000000
+    Size.Height = 603.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 1
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    Sizes = (
+      540s
+      577s)
+    object tiCapture: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 69.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tiCapture'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object imgCameraView: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 540.000000000000000000
+        Size.Height = 577.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+  object ToolBar1: TToolBar
+    Size.Width = 540.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnRecord: TButton
+      Align = Left
+      Size.Width = 137.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'cameratoolbutton'
+      TabOrder = 0
+      Text = 'btnRecord'
+      OnClick = btnRecordClick
+    end
+    object btnPlay: TButton
+      Align = Left
+      Position.X = 137.000000000000000000
+      Size.Width = 136.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'playtoolbuttonbordered'
+      TabOrder = 1
+      Text = 'btnPlay'
+      OnClick = btnPlayClick
+    end
+    object btnMakeVideo: TButton
+      Align = Client
+      Size.Width = 142.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'SaveToFile'
+      OnClick = btnMakeVideoClick
+    end
+    object btnPlayFromFile: TButton
+      Align = Right
+      Position.X = 415.000000000000000000
+      Size.Width = 125.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Play From File'
+      OnClick = btnPlayFromFileClick
+    end
+  end
+  object Camera: TCameraComponent
+    Kind = FrontCamera
+    OnSampleBufferReady = CameraSampleBufferReady
+    Left = 264
+    Top = 104
+  end
+  object TimerCreate: TTimer
+    Enabled = False
+    Interval = 1
+    OnTimer = TimerCreateTimer
+    Left = 40
+    Top = 72
+  end
+  object TimerCapture: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerCaptureTimer
+    Left = 40
+    Top = 128
+  end
+  object TimerPlayer: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerPlayerTimer
+    Left = 40
+    Top = 224
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 416
+    Top = 48
+  end
+end
